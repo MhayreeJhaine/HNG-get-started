@@ -29,7 +29,7 @@ Ensure you have the following installed:
 -Git (for cloning the repository)
 
 CLONE THE REPOSITORY
--git clone https://github.com/mhayree/HNG-Links.git
+-git clone https://github.com/MhayreeJhaine/HNG-get-started.git
 -cd HNG-Links
 
 \*Install Dependencies:
