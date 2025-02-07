@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, Linking, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Linking,
+  TouchableOpacity,
+  Pressable,
+  StyleSheet,
+} from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const App = () => {
@@ -11,88 +18,49 @@ const App = () => {
     Linking.openURL("https://hng.tech/hire/react-native-developers"); // Replace with actual HNG Hire Page
   };
 
+  const openTelex = () => {
+    Linking.openURL("https://telex.im/");
+  };
+
+  const openDelve = () => {
+    Linking.openURL("https://delve.fun/");
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 25,
-        backgroundColor: "#00AEFF",
-      }}
-    >
+    <View style={styles.container}>
       <StatusBar style="auto" />
-      <View
-        style={{
-          flexDirection: "row",
-          gap: 7,
-          alignSelf: "flex-start",
-          top: 45,
-        }}
-      >
+      <View style={styles.logo}>
         <MaterialCommunityIcons name="code-brackets" size={75} color="white" />
 
-        <Text
-          style={{
-            fontSize: 50,
-            fontWeight: "700",
-            top: 7,
-            color: "#FFF",
-          }}
-        >
-          HNG
-        </Text>
+        <Text style={styles.logoText}>HNG</Text>
       </View>
 
       <View style={{ gap: 10 }}>
-        <Text
-          style={{
-            color: "#fff",
-            fontSize: 35,
-            fontWeight: "600",
-          }}
-        >
-          Hire React Native Developers
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: "400",
-            color: "#fff",
-            lineHeight: 30,
-          }}
-        >
+        <Text style={styles.heading}>Hire React Native Developers</Text>
+        <Text style={styles.description}>
           HNG has the best Developers available for hire and freelance jobs
           anywhere in the world. Find Developers that suit your needs — chat
           with us now.
         </Text>
 
-        <TouchableOpacity
-          onPress={openHNGLink}
-          style={{
-            backgroundColor: "#fff",
-            borderRadius: 35,
-            paddingHorizontal: 40,
-            paddingVertical: 16,
-            marginVertical: 15,
-          }}
-        >
-          <Text
-            style={{
-              color: "#000",
-              fontSize: 18,
-              fontWeight: "600",
-              textAlign: "center",
-            }}
-          >
-            Hire React Native Developers ➡ ➡
-          </Text>
+        <TouchableOpacity onPress={openHNGLink} style={styles.hngBtn}>
+          <Text style={styles.btnText}>Hire React Native Developers ➡ ➡</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
-        <Text style={{ color: "#fff", fontSize: 17 }}>
-          Need to view Github repo?
+
+      <View style={styles.footer}>
+        <Text style={styles.text}>
+          Want to explore more?{"   "} ➡{"  "}
         </Text>
+        <Pressable onPress={openTelex}>
+          <Text style={styles.link}>Telex</Text>
+        </Pressable>
+        <Text style={styles.slash}> | </Text>
+        <Pressable onPress={openDelve}>
+          <Text style={styles.link}>Delve</Text>
+        </Pressable>
+
+        <Text style={styles.text}>Need to view Github repo?</Text>
         <TouchableOpacity onPress={openGitHub}>
           <Text
             style={{
@@ -111,4 +79,82 @@ const App = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 25,
+    backgroundColor: "#00AEFF",
+  },
+
+  logo: {
+    flexDirection: "row",
+    gap: 7,
+    alignSelf: "flex-start",
+    top: 45,
+  },
+
+  logoText: {
+    fontSize: 50,
+    fontWeight: "700",
+    top: 7,
+    color: "#FFF",
+  },
+
+  heading: {
+    color: "#fff",
+    fontSize: 35,
+    fontWeight: "600",
+  },
+
+  description: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: "#fff",
+    lineHeight: 30,
+  },
+
+  hngBtn: {
+    backgroundColor: "#fff",
+    borderRadius: 35,
+    paddingHorizontal: 40,
+    paddingVertical: 16,
+    marginVertical: 15,
+  },
+
+  btnText: {
+    color: "#000",
+    fontSize: 18,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+
+  footer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: 7,
+  },
+
+  text: {
+    color: "#fff",
+    fontSize: 17,
+  },
+
+  slash: {
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "900",
+  },
+
+  link: {
+    fontSize: 21,
+    fontWeight: "700",
+    color: "#ffcc00",
+    marginHorizontal: 3,
+    textDecorationLine: "underline",
+  },
+});
 export default App;
