@@ -140,20 +140,20 @@ const styles = StyleSheet.create({
 
   text: {
     color: "#fff",
-    fontSize: 17,
+    fontSize: 15,
   },
 
   slash: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "900",
   },
 
   link: {
-    fontSize: 21,
+    fontSize: 19,
     fontWeight: "700",
     color: "#ffcc00",
-    marginHorizontal: 3,
+    marginHorizontal: 2,
     textDecorationLine: "underline",
   },
 });
